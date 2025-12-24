@@ -1,5 +1,10 @@
 # Smart Inverter Controller Configuration
 
+# ⚠️ SECURITY WARNING ⚠️
+# This file may contain sensitive credentials. Do NOT commit real values to git!
+# Consider using environment variables or a separate config.local.yaml file
+# that is listed in .gitignore for your actual credentials.
+
 # Amber Energy Settings
 amber:
   # Get your API token from https://app.amber.com.au/settings/

@@ -188,8 +188,9 @@ class SmartInverterController:
             logger.error("Failed to get price information")
             return {"success": False, "error": "Failed to get prices"}
         
-        logger.info(f"Import: {price_info['import_price']:.2f} c/kWh ({price_info['import_descriptor']})")
-        if price_info['export_price']:
+        if price_info['import_price'] is not None:
+            logger.info(f"Import: {price_info['import_price']:.2f} c/kWh ({price_info['import_descriptor']})")
+        if price_info['export_price'] is not None:
             logger.info(f"Export: {price_info['export_price']:.2f} c/kWh ({price_info['export_descriptor']})")
         logger.info(f"Renewables: {price_info['renewables']:.1f}%")
         
@@ -267,6 +268,8 @@ def main():
     """
     import sys
     
+    # IMPORTANT: Never commit real credentials!
+    # Use environment variables or a separate config file not tracked by git
     # Load configuration (you should use a proper config file)
     AMBER_API_TOKEN = "your_amber_api_token_here"
     INVERTER_SERIAL = "your_inverter_serial_here"

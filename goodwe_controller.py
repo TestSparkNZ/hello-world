@@ -269,8 +269,14 @@ if __name__ == "__main__":
     # Example usage
     logging.basicConfig(level=logging.INFO)
     
+    # IMPORTANT: Replace with your actual inverter serial number
+    # This is just a placeholder for demonstration
+    serial = input("Enter your inverter serial number (or press Enter for demo): ").strip()
+    if not serial:
+        serial = "DEMO_SERIAL_12345"
+    
     # Example 1: Generic controller
-    controller = GoodWeController(inverter_sn="YOUR_SERIAL_NUMBER")
+    controller = GoodWeController(inverter_sn=serial)
     status = controller.get_status()
     print(f"Inverter status: {status}")
     

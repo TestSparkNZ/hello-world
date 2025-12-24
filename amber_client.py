@@ -179,8 +179,15 @@ if __name__ == "__main__":
     # Example usage
     logging.basicConfig(level=logging.INFO)
     
-    # Replace with your actual API token
+    # IMPORTANT: Replace with your actual API token
+    # NEVER commit your real API token to version control!
     API_TOKEN = "your_amber_api_token_here"
+    
+    if API_TOKEN == "your_amber_api_token_here":
+        print("ERROR: Please set your actual API token before running")
+        print("Get your token from: https://app.amber.com.au/settings/")
+        import sys
+        sys.exit(1)
     
     client = AmberClient(API_TOKEN)
     
