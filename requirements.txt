@@ -1,0 +1,20 @@
+# Python dependencies for Smart Inverter Controller
+
+# HTTP requests for API calls
+requests>=2.31.0
+
+# YAML configuration file parsing (optional, but recommended)
+PyYAML>=6.0.1
+
+# For Modbus control (if using local inverter control)
+# Uncomment if you plan to use Modbus TCP/IP
+# pymodbus>=3.5.0
+
+# For SEMS API integration (if available/needed)
+# Add specific libraries here when implementing SEMS integration
+
+# Optional: For more robust scheduling
+# schedule>=1.2.0
+
+# Optional: For better logging
+# python-json-logger>=2.0.7

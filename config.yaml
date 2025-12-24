@@ -1,0 +1,71 @@
+# Smart Inverter Controller Configuration
+
+# Amber Energy Settings
+amber:
+  # Get your API token from https://app.amber.com.au/settings/
+  api_token: "your_amber_api_token_here"
+  
+  # Optional: Specific site ID (will auto-detect if not specified)
+  # site_id: "your_site_id"
+
+# GoodWe Inverter Settings
+goodwe:
+  # Inverter serial number (found on inverter or SEMS portal)
+  serial_number: "your_inverter_serial_here"
+  
+  # Connection type: 'sems' for cloud API or 'modbus' for local control
+  connection_type: "sems"
+  
+  # For Modbus connection (if using local control)
+  modbus:
+    ip_address: "192.168.1.100"
+    port: 502
+  
+  # For SEMS connection (if using cloud API)
+  sems:
+    username: "your_sems_username"
+    password: "your_sems_password"
+
+# Control Strategy Settings
+strategy:
+  # Charge battery when import price is at or below this (cents per kWh)
+  # Set to 0 to charge only during negative pricing
+  # Set to 10 to charge when price is 10 c/kWh or less
+  charge_threshold: 0.0
+  
+  # Discharge battery when export price is at or above this (cents per kWh)
+  # Typical value: 25-35 c/kWh depending on your feed-in tariff
+  discharge_threshold: 30.0
+  
+  # How often to check prices and adjust (seconds)
+  # Recommended: 300 (5 minutes) - don't check too frequently
+  check_interval: 300
+  
+  # Maximum charging power (watts) - set according to battery capacity
+  # Example: 3000 for 3kW charging rate
+  max_charge_power: 3000
+  
+  # Maximum discharging power (watts)
+  max_discharge_power: 3000
+
+# Safety Settings
+safety:
+  # Minimum battery state of charge (%) before stopping discharge
+  min_battery_soc: 20
+  
+  # Maximum battery state of charge (%) before stopping charge
+  max_battery_soc: 95
+  
+  # Enable automatic return to normal mode if API fails
+  auto_normal_on_error: true
+
+# Logging
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR
+  level: "INFO"
+  
+  # Save control decisions to log file
+  save_to_file: true
+  
+  # Log file path
+  log_file: "inverter_control_log.json"
